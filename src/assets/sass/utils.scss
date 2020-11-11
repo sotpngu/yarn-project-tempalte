@@ -1,0 +1,47 @@
+// 文字设置
+// $fontsize: 字号
+// $lineheight: 行高
+// $color: 颜色
+@mixin font($fontsize, $lineheight, $color) {
+    font-size: $fontsize;
+    line-height: $lineheight;
+    color: $color;
+}
+// 图片设置
+// $width: 宽度
+// $height: 高度
+@mixin img($width, $height) {
+    pointer-events: none;
+    width: $width;
+    height: $height;
+}
+// 超出隐藏
+// $line: 行数
+@mixin ellipsis($line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    @if $line == 1 {
+        white-space: nowrap;
+    }
+    @if $line >1{
+        display: -webkit-box;
+    }
+}
+// 输入框提醒文字的颜色
+// $color: 颜色
+@mixin placeholder-color($color) {
+    input::-webkit-input-placeholder{
+        color:$color;
+    }
+    input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+        color:$color;
+    }
+    input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+        color:$color;
+    }
+    input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+        color:$color;
+    }
+}
